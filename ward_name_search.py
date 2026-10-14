@@ -31,7 +31,7 @@ def ward_name_search(dfs, sname):
         if student_details.empty:
             continue
         print(student_details[["Registration No", "Full Name", "Tutor Name"]])
-        return 
+        
 
 
 

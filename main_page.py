@@ -3,7 +3,9 @@ import tutor_search as tsearch
 import ward_regno_search as wrsearch
 import ward_name_search as wnsearch
 
-doc = pd.ExcelFile("tw-details.xlsx")
+filename = "tw-details.xlsx"
+
+doc = pd.ExcelFile(filename)
 n = len(doc.sheet_names)
 pd.set_option('display.float_format', '{:.0f}'.format) # To print reg. no's in full form
 
@@ -13,7 +15,7 @@ tutors = []
 
 #reading the excel file
 for i in range(n):
-    df = pd.read_excel("tw-details.xlsx", sheet_name=i)
+    df = pd.read_excel(filename, sheet_name=i)
     for name in df["Tutor Name"].unique().dropna().tolist():
         tutors.append(name)
     dfs.append(df)
@@ -39,6 +41,8 @@ else:
     print("Invalid Choice")
 
 
-#TODO: Improve search accuracy'''
+#TODO: Add a simple and effective frontend with this backend :)
+
+
 
 
