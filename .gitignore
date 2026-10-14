@@ -1,5 +1,7 @@
-
 *.xlsx
 *.xls
+__pycache__/
+*.py[cod]
+.venv/
+venv/
 [OLD] app.py
-
