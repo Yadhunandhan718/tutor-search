@@ -1,14 +1,29 @@
 import pandas as pd
+from rapidfuzz import process, fuzz
 
-def tutor_search(dfs, name):
+def tutor_search(dfs, tutors, tname):
 
-    for df in dfs:
-        results = df.loc[df["Tutor Name"].str.contains(name, case=False), ["Registration No", "First Name", "Last Name"]]
+    results = process.extract(
+        tname, 
+        tutors,
+        scorer=fuzz.WRatio,
+        processor=str.lower,
+        limit=5,
+        score_cutoff=65
+    )
 
-        if(results.empty):
-            continue
-        else:
-            print("Matching Tutor Name: " + df.iloc[0]["Tutor Name"])
-            print(results)
+    if results:
+        for name, score, index in results:
+            print("Closest Matching Name: ", name)
+
+            for df in dfs:
+                tutor_details = df[df["Tutor Name"].str.lower() == name.lower()]
+
+                if tutor_details.empty:
+                    continue
+                else:
+                    print(tutor_details[["First Name", "Last Name", "Registration No"]])
+    else:
+        print("No matching name found.")
 
     print("\n")
