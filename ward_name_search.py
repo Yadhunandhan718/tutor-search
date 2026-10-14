@@ -30,7 +30,7 @@ def ward_name_search(dfs, sname):
         student_details = all_data[all_data["Full Name"].str.lower().eq(matched_name.lower()).fillna(False)]
         if student_details.empty:
             continue
-        print(student_details[["Registration No", "Full Name", "Tutor Name"]])
+        return student_details[["Registration No", "Full Name", "Tutor Name"]]
         
 
 

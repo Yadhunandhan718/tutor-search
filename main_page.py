@@ -12,6 +12,7 @@ pd.set_option('display.float_format', '{:.0f}'.format) # To print reg. no's in f
 
 dfs = []
 tutors = []
+flag = 1
 
 #reading the excel file
 for i in range(n):
@@ -24,21 +25,27 @@ print('''1. Tutor Name search to get details
 (or) 
 2. Register No. search to get student details 
 (or) 
-3. Name search to get student details''')
+3. Name search to get student details
+Choose Option (1/2/3): ''', end=" ")
 choice = int(input())
 
 1
 if(choice == 1):
     name = input("Enter name: ")
-    tsearch.tutor_search(dfs, tutors, name)
+    df = tsearch.tutor_search(dfs, tutors, name)
 elif(choice == 2):
     reg = float(input("Enter reg. no or subset of reg. no: "))
-    wrsearch.ward_search(dfs, reg)
+    df = wrsearch.ward_search(dfs, reg)
 elif(choice == 3):
     sname = input("Enter student name: ")
-    wnsearch.ward_name_search(dfs, sname)
+    df = wnsearch.ward_name_search(dfs, sname)
 else:
     print("Invalid Choice")
+    flag = 0
+
+if(flag):
+    print(df)
+
 
 
 #TODO: Add a simple and effective frontend with this backend :)

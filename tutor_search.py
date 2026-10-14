@@ -20,12 +20,12 @@ def tutor_search(dfs, tutors, tname):
 
             for df in dfs:
                 #to handle empty tutor values and equality values
-                tutor_details = df[df["Tutor Name"].str.lower().eq(name.lower()).fillna(False) == name.lower()]
+                tutor_details = df[df["Tutor Name"].str.lower().eq(name.lower()).fillna(False)]
 
                 if tutor_details.empty:
                     continue
                 else:
-                    print(tutor_details[["First Name", "Last Name", "Registration No"]])
+                    return tutor_details[["First Name", "Last Name", "Registration No"]]
     else:
         print("No matching name found.")
 

@@ -5,6 +5,6 @@ def ward_search(dfs, reg_no):
         results = df.loc[df["Registration No"].astype(str).str.contains(str(reg_no), na=False),  ["Tutor Name", "First Name", "Last Name", "Registration No"]]
         if results.empty:
             continue
-        print(results)
+        return results
     print("\n")
 
