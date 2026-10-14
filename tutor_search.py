@@ -1,25 +1,14 @@
 import pandas as pd
 
+def tutor_search(dfs, name):
 
-pd.set_option('display.float_format', '{:.0f}'.format) # To print reg. no's in full form
+    for df in dfs:
+        results = df.loc[df["Tutor Name"].str.contains(name, case=False), ["Registration No", "First Name", "Last Name"]]
 
-name = input("Enter tutor name to get their wards: ")
+        if(results.empty):
+            continue
+        else:
+            print("Matching Tutor Name: " + df.iloc[0]["Tutor Name"])
+            print(results)
 
-dfs = []
-tutorNames = []
-
-for i in range(4):
-    df = pd.read_excel("tw-details.xlsx", sheet_name=i)
-    dfs.append(df)
-
-for df in dfs:
-    results = df.loc[df["Tutor Name"].str.contains(name, case=False), ["Registration No", "First Name", "Last Name"]]
-
-    if(results.empty):
-        continue
-    else:
-        print("Matching Tutor Name: " + df.iloc[0]["Tutor Name"])
-        print(results)
-
-print("\n")
-#TODO: Improve search accuracy
+    print("\n")
