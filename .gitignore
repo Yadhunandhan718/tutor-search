@@ -1,0 +1,3 @@
+#do not include excel files (databases) in the github repo
+*.xlsx
+*.xls
