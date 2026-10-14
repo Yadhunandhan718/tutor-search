@@ -1,6 +1,7 @@
 import pandas as pd
 import tutor_search as tsearch
-import ward_search as wsearch
+import ward_regno_search as wrsearch
+import ward_name_search as wnsearch
 
 doc = pd.ExcelFile("tw-details.xlsx")
 n = len(doc.sheet_names)
@@ -17,7 +18,11 @@ for i in range(n):
         tutors.append(name)
     dfs.append(df)
 
-print("Tutor Name search to get details (or) Register No. search to get student details")
+print('''1. Tutor Name search to get details
+(or) 
+2. Register No. search to get student details 
+(or) 
+3. Name search to get student details''')
 choice = int(input())
 
 1
@@ -26,11 +31,14 @@ if(choice == 1):
     tsearch.tutor_search(dfs, tutors, name)
 elif(choice == 2):
     reg = float(input("Enter reg. no or subset of reg. no: "))
-    wsearch.ward_search(dfs, reg)
+    wrsearch.ward_search(dfs, reg)
+elif(choice == 3):
+    sname = input("Enter student name: ")
+    wnsearch.ward_name_search(dfs, sname)
 else:
     print("Invalid Choice")
 
 
-#TODO: Improve search accuracy'''1
+#TODO: Improve search accuracy'''
 
 
