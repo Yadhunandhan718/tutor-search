@@ -6,6 +6,7 @@ pd.set_option('display.float_format', '{:.0f}'.format) # To print reg. no's in f
 name = input("Enter tutor name to get their wards: ")
 
 dfs = []
+tutorNames = []
 
 for i in range(4):
     df = pd.read_excel("tw-details.xlsx", sheet_name=i)
@@ -21,3 +22,4 @@ for df in dfs:
         print(results)
 
 print("\n")
+#TODO: Improve search accuracy
