@@ -25,7 +25,7 @@ def tutor_search(dfs, tutors, tname):
                 if tutor_details.empty:
                     continue
                 else:
-                    return tutor_details[["First Name", "Last Name", "Registration No"]]
+                    return tutor_details[["Name", "Registration No"]]
     else:
         print("No matching name found.")
 

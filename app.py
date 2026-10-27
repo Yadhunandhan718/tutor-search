@@ -21,9 +21,10 @@ dfs = []
 #no. of sheets defined here
 n = len(workbook.sheet_names)
 
+#make the consolidated df list and update tutor names across all sheets of the excel file
 for i in range(n):
     df = pd.read_excel(filename, sheet_name=i)
-    for name in df["Tutor Name"].unique().dropna().tolist():
+    for name in df["Tutor Name"].unique().tolist():
         tutors.append(name)
     dfs.append(df)
 
