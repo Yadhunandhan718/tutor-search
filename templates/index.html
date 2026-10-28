@@ -9,40 +9,75 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="theme-color"
+        content="#172642"
+    >
+
+    <meta
+        name="description"
+        content="Search tutor and student records, browse academic years, and retrieve tutor ward information."
+    >
+
     <title>Tutor-Ward Index</title>
 
-    <link
-        rel="stylesheet"
-        href="/static/style.css"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
 
-    <div class="container">
+    <main class="container">
 
-        <h1>Tutor-Ward Index</h1>
+        <!-- PAGE HEADER -->
 
-        <p>
-            Search for tutors and students,
-            or browse tutors by academic year.
-        </p>
+        <header>
+
+            <div class="brand-label">
+                Academic Records
+            </div>
+
+            <h1>Tutor-Ward Index</h1>
+
+            <p>
+                Find tutor assignments and student records
+                through a simple, centralised search interface.
+            </p>
+
+        </header>
 
 
         <!-- ACADEMIC YEAR BROWSER -->
 
         <section id="year-browser">
 
-            <h2>Browse by Academic Year</h2>
+            <div class="panel-heading">
+
+                <div class="section-number" aria-hidden="true">
+                    01
+                </div>
+
+                <div>
+
+                    <h2>Browse by Academic Year</h2>
+
+                    <p class="section-description">
+                        Select a year to view its tutors and
+                        retrieve their assigned wards.
+                    </p>
+
+                </div>
+
+            </div>
+
 
             <label for="academic-year">
-                Choose academic year
+                Academic year
             </label>
 
             <select id="academic-year">
 
                 <option value="">
-                    Select a year
+                    Select an academic year
                 </option>
 
                 <option value="1">
@@ -63,16 +98,19 @@
 
             </select>
 
+
             <div
                 id="year-message"
                 role="status"
                 aria-live="polite"
             ></div>
 
+
             <div
                 id="tutor-list"
-                aria-label="Tutors for selected year"
+                aria-label="Tutors for selected academic year"
             ></div>
+
 
             <div id="year-results"></div>
 
@@ -82,16 +120,34 @@
         <hr>
 
 
-        <!-- EXISTING SEARCH FUNCTIONALITY -->
+        <!-- EXISTING SEARCH -->
 
-        <section>
+        <section id="search-section">
 
-            <h2>Search</h2>
+            <div class="panel-heading">
+
+                <div class="section-number" aria-hidden="true">
+                    02
+                </div>
+
+                <div>
+
+                    <h2>Search Records</h2>
+
+                    <p class="section-description">
+                        Find a tutor, look up a student,
+                        or search by registration number.
+                    </p>
+
+                </div>
+
+            </div>
+
 
             <form id="search-form">
 
                 <label for="search-type">
-                    Search by
+                    Search category
                 </label>
 
                 <select id="search-type">
@@ -112,18 +168,19 @@
 
 
                 <label for="query">
-                    Enter your search
+                    Search query
                 </label>
 
                 <input
                     type="text"
                     id="query"
                     placeholder="Enter a name or registration number"
+                    autocomplete="off"
                     required
                 >
 
                 <button type="submit">
-                    Search
+                    Search Records
                 </button>
 
             </form>
@@ -135,14 +192,15 @@
                 aria-live="polite"
             ></div>
 
+
             <div id="results"></div>
 
         </section>
 
-    </div>
+    </main>
 
 
-    <script src="/static/script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
