@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Tutor-Ward Index</title>
 
-    <link rel="stylesheet" href="/static/style.css">
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
 </head>
 
 <body>
@@ -14,38 +22,128 @@
     <div class="container">
 
         <h1>Tutor-Ward Index</h1>
-        <p>Search for tutors and students.</p>
 
-        <form id="search-form">
+        <p>
+            Search for tutors and students,
+            or browse tutors by academic year.
+        </p>
 
-            <label for="search-type">Search by</label>
 
-            <select id="search-type">
-                <option value="tutor">Tutor Name</option>
-                <option value="student">Student Name</option>
-                <option value="regno">Registration Number</option>
+        <!-- ACADEMIC YEAR BROWSER -->
+
+        <section id="year-browser">
+
+            <h2>Browse by Academic Year</h2>
+
+            <label for="academic-year">
+                Choose academic year
+            </label>
+
+            <select id="academic-year">
+
+                <option value="">
+                    Select a year
+                </option>
+
+                <option value="1">
+                    First Year
+                </option>
+
+                <option value="2">
+                    Second Year
+                </option>
+
+                <option value="3">
+                    Third Year
+                </option>
+
+                <option value="4">
+                    Fourth Year
+                </option>
+
             </select>
 
-            <label for="query">Enter your search</label>
+            <div
+                id="year-message"
+                role="status"
+                aria-live="polite"
+            ></div>
 
-            <input
-                type="text"
-                id="query"
-                placeholder="Enter a name or registration number"
-                required
-            >
+            <div
+                id="tutor-list"
+                aria-label="Tutors for selected year"
+            ></div>
 
-            <button type="submit">Search</button>
+            <div id="year-results"></div>
 
-        </form>
+        </section>
 
-        <div id="message"></div>
 
-        <div id="results"></div>
+        <hr>
+
+
+        <!-- EXISTING SEARCH FUNCTIONALITY -->
+
+        <section>
+
+            <h2>Search</h2>
+
+            <form id="search-form">
+
+                <label for="search-type">
+                    Search by
+                </label>
+
+                <select id="search-type">
+
+                    <option value="tutor">
+                        Tutor Name
+                    </option>
+
+                    <option value="student">
+                        Student Name
+                    </option>
+
+                    <option value="regno">
+                        Registration Number
+                    </option>
+
+                </select>
+
+
+                <label for="query">
+                    Enter your search
+                </label>
+
+                <input
+                    type="text"
+                    id="query"
+                    placeholder="Enter a name or registration number"
+                    required
+                >
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+
+
+            <div
+                id="message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+            <div id="results"></div>
+
+        </section>
 
     </div>
+
 
     <script src="/static/script.js"></script>
 
 </body>
+
 </html>
