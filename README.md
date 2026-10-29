@@ -49,9 +49,9 @@ The application expects the Excel workbook to follow a specific format.
 
 The relevant columns include:
 
-| Tutor Name | First Name | Last Name | Registration No |
-|------------|------------|-----------|-----------------|
-| ABC        | DEF        | JAM       | 1234            |
+| Tutor Name | Roll No | Name | Registration No |
+| ---------- | ------- | ---- | --------------- |
+| ABC        | 789     | JAM  | 1234            |
 
 The example above is illustrative. Ensure that your workbook's column
 names and sheet structure match the expectations of the application.
